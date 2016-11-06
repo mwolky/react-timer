@@ -26,13 +26,10 @@ describe('Countdown', () => {
   describe('handleStopCountdown', ()=> {
     it('should never set count less than zero', (done)=>{
       var countdown = TestUtils.renderIntoDocument(<Countdown />);
-      countdown.handleSetCountdown(10);
-      expect(countdown.state.count).toBe(10);
-      expect(countdown.state.countdownStatus).toBe('started');
+      countdown.handleSetCountdown(1);
 
       setTimeout(()=>{
         expect(countdown.state.count).toBe(0);
-        expect(countdown.state.countdownStatus).toBe('stopped');
         done();
       }, 3001);
     });
